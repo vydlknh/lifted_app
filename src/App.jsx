@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './page/Home';
 import Signup from './page/Signup';
 import Login from './page/Login';
+import UserInfo from './page/UserInfo'
 import { useRoutes } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import './App.css'
@@ -20,6 +21,10 @@ const App = () => {
     {
       path: "/login",
       element:<Login/>
+    },
+    {
+      path: "/info",
+      element:<UserInfo />
     }
   ])
   return (

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { signOut } from "firebase/auth";
-import { onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from 'react-router-dom';
+import { collection, deleteDoc, doc, getDocs, query, getDoc, setDoc } from "firebase/firestore";
+
 
 
 const Home = () => {
@@ -27,17 +29,18 @@ const Home = () => {
         console.log("Signed out successfully");
       })
       .catch((error) => {
-        // An error happened.
+        console.log(error);
+        
       });
+  }
 
-    return (
-      <section>
-        <h1>Lifted</h1>
-        <button onClick={handleLogout}>
-          Logout
-        </button>
-      </section>
-    );
-  };
+  return (
+    <section>
+      <h1>Lifted</h1>
+      <button onClick={handleLogout}>
+        Logout
+      </button>
+    </section>
+  );
 };
 export default Home;
