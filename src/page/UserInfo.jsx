@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { firestore } from "@/firebase"
+import { firestore } from "../firebase"
 import { useNavigate } from "react-router-dom";
 import { collection, deleteDoc, doc, getDocs, query, getDoc, setDoc } from "firebase/firestore";
 
@@ -12,7 +12,7 @@ const UserInfo = () => {
   const [name, setName] = useState("");
 
   const onSubmit = async (info) => {
-    const docRef = doc(collection(firestore, "users"), item);
+    const docRef = doc(collection(firestore, "users"), info);
     await setDoc(docRef, { name: name });
   }
 
