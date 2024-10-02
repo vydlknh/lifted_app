@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        navigate("/home");
+        navigate("/dashboard");
         console.log(user);
       })
       .catch((error) => {
@@ -61,7 +61,7 @@ const Login = () => {
             </form>
 
             <p className="text-sm text-white text-center">
-              No account yet? <NavLink to="/signup">Sign up</NavLink>
+              No account yet? <Link to="/signup">Sign up</Link>
             </p>
           </div>
         </section>
